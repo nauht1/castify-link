@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <script>
+        function openApp() {
+            const token = new URLSearchParams(window.location.search).get("token");
+            const deepLink = `castify://verify?token=${token}`;
+            window.location.href = deepLink;
+
+            // Fallback link
+            setTimeout(() => {
+                window.location.href = "https://play.google.com/store";
+            }, 2000);
+        }
+    </script>
+</head>
+<body onload="openApp()">
+    <p>Redirecting to the app...</p>
+</body>
+</html>
