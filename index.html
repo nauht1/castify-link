@@ -6,7 +6,7 @@
     <title>Redirecting...</title>
     <script>
         function openApp() {
-            const params = URLSearchParams(window.location.search);
+            const params = new URLSearchParams(window.location.search);
             const token = params.get("token");
             const app = params.get("app");
 
@@ -16,6 +16,9 @@
             } else {
                 deepLink = `castify://verify?token=${token}`;
             }
+
+            console.log(deepLink);
+
             window.location.href = deepLink;
 
             // Fallback link
